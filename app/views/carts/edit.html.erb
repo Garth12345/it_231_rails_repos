@@ -1,0 +1,24 @@
+<h1>Edit your Cart</h1>
+<p id="notice" class="w3-panel"><%= notice %></p>
+<div class="w3-panel w3-white">
+<table class="w3-table-all">
+     <tbody> 
+	  <% @cart.line_items.each do |item| %>
+	   <tr>
+	   	<td><%= item.product.title %></td>
+	     <td><%= item.product.price %></td>
+	     <td><%= item.product.image_url %></td>
+	     </tr>
+	  <% end %> 
+<tr>
+<td><%= link_to 'Show', @cart , class:"w3-button w3-light-blue" %> </td>    
+<td><%= link_to 'Back', carts_path , class:"w3-button w3-light-blue" %> </td>
+</tr>
+</tbody>
+<thead>
+  <tr>
+    <th><h1>title</h1></th>
+    <th><h1>price</h1></th>
+    <th><h1>image</h1></th> </tr> </thead>
+</table>
+</div>

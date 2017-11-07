@@ -1,0 +1,29 @@
+<p id="notice" class="w3-panel"><%= notice %></p>
+
+<h1>Products Index </h1>
+
+<table class="w3-table-all">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image url</th>
+      <th>Price </th>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.title %></td>
+        <td><%= strip_tags(product.description) %></td>
+        <td><%= image_tag(product.image_url) %></td>
+        <td><%= number_to_currency(product.price) %>
+        <%= button_to 'Add to Cart', line_items_path(product_id: product),class:"w3-button w3-light-blue" %> </td>
+      </tr>
+      
+    <% end %>
+    
+  </tbody>
+</table>
